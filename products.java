@@ -8,7 +8,7 @@ public class products {
          List<Product> products = new ArrayList<Product>();
 
          while(true){
-             System.out.println("Comando para trabajar con productos /add");
+             System.out.println("Comando para trabajar con productos: \n/add \n/get");
              String name = input.nextLine();
              if(name.equals("/add")) {
                  System.out.println("Introduzca el nombre del producto");
@@ -22,10 +22,14 @@ public class products {
 
                  products.add(new Product(product, price, quantity));
              }
-             for(Product p : products){
-                 System.out.print("Nombre: " + p.name + " ");
-                 System.out.print("| Precio: " + p.price);
-                 System.out.print("| Cantidad: " + p.quantity + "\n");
+             if(name.equals("/get")) {
+                 System.out.println("______________________________________________");
+                 for(Product p : products){
+                     System.out.print("Nombre: " + p.name + " ");
+                     System.out.print("| Precio: " + p.price);
+                     System.out.print("| Cantidad: " + p.quantity + "\n");
+                 }
+                 System.out.println("______________________________________________");
              }
          }
      }
@@ -41,17 +45,5 @@ public class products {
              this.quantity=quantity;
          }
 
-         public void setProduct(){
-             Scanner input = new Scanner(System.in);
-
-             System.out.print("Nuevo nombre del producto: ");
-             this.name= input.nextLine();
-
-             System.out.print("Nuevo precio del producto: ");
-             this.price = input.nextDouble();
-
-             System.out.print("Neva cantidad del producto: ");
-             this.price = input.nextInt();
-         }
      }
 }
